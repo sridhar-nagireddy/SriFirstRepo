@@ -12,8 +12,9 @@
  </target>
 
 <target name="run" depends = "compile" >
-	
+	<echo message="Hello World!" />
 	<java classname="test.auto.SimpleOne">
+		
 	            <!--arg value="10"/>
 	            <classpath refid="classpath">
 	            </classpath> --> 
