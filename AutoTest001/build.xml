@@ -12,19 +12,24 @@
  </target>
 
 <target name="run" depends = "compile" >
-	<echo message="Hello World!" />
+
+	      <java fork = "true" failonerror = "yes" classname = "SimpleOne">
+	         <!--arg line = "admin@test.com"/  -->
+	      </java>
+	   </target>
+	<!-- echo message="Hello World!" />
 	<java classname="test.auto.SimpleOne">
 		
-	            <!--arg value="10"/>
+	            <arg value="10"/>
 	            <classpath refid="classpath">
-	            </classpath> --> 
-		<!--  use  below step to  execute any java or non java programs 
+	            </classpath>  
+		<  use  below step to  execute any java or non java programs 
 	   <exec executable="name-of-executable">
 	      < arg value="${arg0}"/
 	      < arg value="${arg1}"/ 
-	   </exec> -->
+	   </exec> 
 		</java>  
-</target>
+</target> -->
  <!-- "compile" target depends on "clean" so It'll delete "bin" folder if exists and 
    create new "bin" folder for compiles class file -->
  <target name="clean">
