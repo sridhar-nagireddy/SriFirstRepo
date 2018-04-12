@@ -7,15 +7,11 @@
 	 <delete dir="bin" />
 	  <mkdir dir="bin" />
 	 </target>
-<!--target name = "info">
-	      <echo> Apache Ant version is ${ant.version} - You are at ${sitename} </echo>
-		  <echo> Apache ant home directory is ${ant.home} </echo>
-</target-->	
 <target name="compile" >
   <!-- Java compile parameters here  -->
   <javac  srcdir="src" destdir="bin" />
  </target>
-	<target name="jar">
+<target name="jar">
 	        <mkdir dir="bin/jar"/>
 	        <jar destfile="bin/jar/SimpleOne.jar" basedir=".">
 	            <manifest>
@@ -24,8 +20,7 @@
 	            </manifest>
 	        </jar>
 	    </target>
-
-	    <target name="run">
+<target name="run">
 	        <java jar="bin/jar/SimpleOne.jar" fork="true"/>
 	    </target>
 
