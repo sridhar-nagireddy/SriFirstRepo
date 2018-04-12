@@ -4,22 +4,21 @@
 <!-- ANT will start execution from here by   -->
 	
 	<target name="clean">
-	  <delete dir="bin" />
+	<echo> Clean Step started  </echo>
+	 <delete dir="bin" />
 	  <mkdir dir="bin" />
 	 </target>
 <target name = "info">
-	      <echo>Apache Ant version is ${ant.version} - You are at ${sitename} </echo>
+	      <echo> Apache Ant version is ${ant.version} - You are at ${sitename} </echo>
 		  <echo> Apache ant home directory is ${ant.home} </echo>
 </target>	
-<target name="compile" depends="clean">
+<target name="compile" >
   <!-- Java compile parameters here  -->
   <javac debug="true" debuglevel="lines,vars,source" includeantruntime="false" srcdir="src" destdir="bin" />
  </target>
-<target name="run" depends = "compile" >
+<target name="run"  >
 
-	      <java fork = "true" failonerror = "yes" classname = "SimpleOne">
-	         <!--arg line = "admin@test.com"/  -->
-	      </java>
+	      
 	   </target>
 	<!-- echo message="Hello World!" />
 	<java classname="test.auto.SimpleOne">
