@@ -13,12 +13,12 @@
 
 <target name="run" depends = "compile" >
 	
-	<java classname="SimpleOne">
+	<java classname="test.auto.SimpleOne">
 	            <!--arg value="10"/>
 	            <classpath refid="classpath">
 	            </classpath> --> 
 		<!--  use  below step to  execute any java or non java programs 
-	<exec executable="name-of-executable">
+	   <exec executable="name-of-executable">
 	      < arg value="${arg0}"/
 	      < arg value="${arg1}"/ 
 	   </exec> -->
