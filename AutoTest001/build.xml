@@ -3,15 +3,26 @@
 	<property name = "sitename" value = "www.tutorialspoint.com"/>
 	<target name = "info">
 	      <echo>Apache Ant version is ${ant.version} - You are at ${sitename} </echo>
-		  <echo> Apache home directory is ${ant.home} </echo>
+		  <echo> Apache ant home directory is ${ant.home} </echo>
 	   </target>	
  <!-- ANT will start execution from here by finding target "compile"  -->
  <target name="compile" depends="clean">
   <!-- Java compile parameters here  -->
   <javac debug="true" debuglevel="lines,vars,source" srcdir="src" destdir="bin" />
  </target>
+
 <target name="run" depends = "compile" >
-    
+	
+	<java classname="SimpleOne">
+	            <!--arg value="10"/>
+	            <classpath refid="classpath">
+	            </classpath> --> 
+		<!--  use  below step to  execute any java or non java programs 
+	<exec executable="name-of-executable">
+	      < arg value="${arg0}"/
+	      < arg value="${arg1}"/ 
+	   </exec> -->
+		</java>  
 </target>
  <!-- "compile" target depends on "clean" so It'll delete "bin" folder if exists and 
    create new "bin" folder for compiles class file -->
