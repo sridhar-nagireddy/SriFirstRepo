@@ -4,7 +4,6 @@
 <!-- ANT will start execution from here by   -->
 	
 	<target name="clean">
-	
 	 <delete dir="bin" />
 	  <mkdir dir="bin" />
 	 </target>
@@ -21,6 +20,7 @@
 	        <jar destfile="bin/jar/SimpleOne.jar" basedir=".">
 	            <manifest>
 	                <attribute name="Main-Class" value="test.auto.SimpleOne"/>
+	            	<attribute name="Class-Path" value="/E:/GIT_Local/SriFirstRepo/AutoTest001/bin/"/>
 	            </manifest>
 	        </jar>
 	    </target>
