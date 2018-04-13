@@ -1,27 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="AutoTest001" default="clean" basedir=".">
-	<property name = "sitename" value = "www.tutorialspoint.com"/>
-<!-- ANT will start execution from here by   -->
+	<property name = "sitename" value = "sandbox"/>
+	<property name = "SrcDir" value = "${basedir}/src"/>
+	<property name = "JarOutDir" value = "${basedir}/JarOut"/>
+	<property name =  "DependentLibsDir" value ="${basedir}/DependentLibsJars"/>
+	<property name = "BuildDir" value = "${basedir}/ClassesOut"/>
+<target name ="info">
 	
-	<target name="clean">
-	 <delete dir="bin" />
-	  <mkdir dir="bin" />
-	 </target>
-<target name="compile" >
-  <!-- Java compile parameters here  -->
-  <javac  srcdir="src" destdir="bin" />
- </target>
-<target name="jar">
-	        <mkdir dir="bin/jar"/>
-	        <jar destfile="bin/jar/SimpleOne.jar" basedir=".">
-	            <manifest>
-	                <attribute name="Main-Class" value="test.auto.SimpleOne"/>
-	            	<attribute name="Class-Path" value="/E:/GIT_Local/SriFirstRepo/AutoTest001/bin/"/>
-	            </manifest>
-	        </jar>
-	    </target>
+</target>
+
+<!-- ANT will start execution from here by   -->
+	<target name = "clean" description = "Clean output directories">
+	   <delete>
+	      <fileset dir = "${BuildDir}">
+	         <include name = "**/*.class"/>
+	      </fileset>
+		<fileset dir = "${JarOutDir}">
+		         <include name = "**/*.class"/>
+		      </fileset>
+	   </delete>
+	</target>
+<path id = "master-classpath">
+	   <fileset dir = "${DependentLibsDir}">
+	      <include name = "*.jar"/>
+	   </fileset>
+	   <pathelement path = "${BuildDir}"/>
+</path>
+	
+	<target name = "build" description = "Compile main source tree java files">
+	   <mkdir dir = "${BuildDir}"/>
+	   
+	   <javac destdir = "${BuildDir}"  debug = "true"
+	      deprecation = "false" optimize = "false" failonerror = "true">
+	      <src path = "${SrcDir}"/>
+	      <classpath refid = "master-classpath"/>
+	   </javac>
+	</target>
+	<target name = "build-jar">
+	   <jar destfile = "${JarOutDir}/util.jar"
+	      basedir = "${BuildDir}"
+	      includes = "**/*.class">
+	      <manifest>
+	         <attribute name = "Main-Class" value = "test.auto.SimpleOne"/>
+	      </manifest>
+	   </jar>
+	</target>
 <target name="run">
-	        <java jar="bin/jar/SimpleOne.jar" fork="true"/>
+	        <java jar="${JarOutDir}/util.jar" fork="true"/>
 	    </target>
 
 </project>
